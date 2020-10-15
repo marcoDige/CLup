@@ -1,0 +1,119 @@
+\documentclass[10pt,openany]{book}
+
+\usepackage[]{graphicx}
+\usepackage[]{color}
+\usepackage{alltt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+% Set page margins
+\usepackage[top=100pt,bottom=100pt,left=68pt,right=66pt]{geometry}
+
+% Package used for placeholder text
+\usepackage{lipsum}
+
+% Prevents LaTeX from filling out a page to the bottom
+\raggedbottom
+
+% All page numbers positioned at the bottom of the page
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\pagestyle{fancy}
+
+% Changes the style of chapter headings
+\usepackage{titlesec}
+\titleformat{\chapter}
+   {\normalfont\LARGE\bfseries}{\thechapter.}{1em}{}
+% Change distance between chapter header and text
+\titlespacing{\chapter}{0pt}{50pt}{2\baselineskip}
+
+% Adds table captions above the table per default
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+
+% Adds space between caption and table
+\usepackage[tableposition=top]{caption}
+
+% Adds hyperlinks to references and ToC
+\usepackage{hyperref}
+\hypersetup{hidelinks,
+            linkcolor = blue} % Changes the link color to black and hides the hideous red border that usually is created
+
+% If multiple images are to be added, a folder (path) with all the images can be added here 
+\graphicspath{ {images/} }
+
+% Separates the first part of the report/thesis in Roman numerals
+\frontmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Starts the document
+\begin{document}
+
+%%%%% Adds the title page
+\begin{titlepage}
+    \clearpage
+    \thispagestyle{empty}
+	\centering
+	\vspace{2cm}
+
+    % Titles
+    % Information about the University
+	{\normalsize  Computer Science and Engineering\\Software Engineering 2 Project - Prof. Elisabetta Di Nitto\par}
+	\vspace{3cm}
+	{\Huge \textbf{CLup – Customers Line-up}} \\
+	\vspace{1cm}
+	{\large \textbf{Design Document} \par}
+	\vspace{4cm}
+	{\normalsize Marco Di Gennaro (10596841)\\Luca Danelutti (10604455)  \par}
+	\vspace{2cm}
+
+    \includegraphics[scale=0.4]{images/Logo_Politecnico_Milano.png}
+    
+    \vspace{2cm}
+
+	% Set the date
+	{\normalsize January 10, 2021 \par}
+	
+	\pagebreak
+
+\end{titlepage}
+
+% Adds a table of contents
+\tableofcontents{}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Text body starts here!
+\mainmatter
+\chapter{Introduction}
+
+\chapter{Architectural Design}\label{chapt:sum}
+
+\chapter{User Interface Design}\label{chapt:sum}
+
+\chapter{Requirements Traceability}\label{chapt:sum}
+
+\chapter{Implementation, Integration and Test Plan}\label{chapt:sum}
+
+\chapter{Effort Spent}\label{chapt:sum}
+
+\chapter{References}\label{chapt:sum}
+
+\pagebreak
+
+
+% Adding a bibliography if citations are used in the report
+\bibliographystyle{plain}
+\bibliography{BiBTeXexempel.bib}
+% Adds reference to the Bibliography in the ToC
+\addcontentsline{toc}{chapter}{\bibname}
+
+\end{document}
