@@ -1,5 +1,83 @@
-\subsection{World Phenomena}
+The system aims to provide a solution to reduce overcrowding both inside and outside grocery stores.
+Due to the coronavirus emergency supermarkets need to restrict access to their stores to avoid having crowds inside, but at the same time they must avoid long queues outside which are themselves a potential risk.
+The application would work as a digital counterpart to the common situation where people who are in line for a service retrieve a number that gives their position in the queue.
+The system should provide both the possibility to line up remotely (for example throught a mobile phone) and at the grocery store for those customers who do not have access to the required technology.
+Each customer that lined up should receive a number. Users should wait until his/her number is being called (or close to being called) to approach the store. This should reduce overcrowdings outside supermarkets.
+Users can also scan a QR code when entering the grocery store, enabling the store manager to monitor entrances. 
+
+In addition to line up directly an advanced function is offered. Customers can also book a visit to the supermarket, similarly to booking a slot for visiting a museum. The system should be able to schedule customer visits correctly given that each visit will last differently from the others.  
+CLup can ask the customer details about his/her visit or it can compute an estimated duration from previous visits of the same user.
+
+Ultimately, the system will have to be easy-to-use given that everyone needs to do grocery shopping and the more users will use the system remotely the more CLup will be effective.
+
+\subsection{World Phenomena} %Customer/A customer
+\begin{center}
+    {\renewcommand{\arraystretch}{2.4}%
+    \begin{tabular}{L{2cm}L{14cm}}
+        \hline
+        \textbf{WP1} & Customer wants to go grocery shopping at that time \\
+        \hline
+        \textbf{WP2} & Customer wants to go grocery shopping in the future \\
+        \hline
+        \textbf{WP3} & Customer wants to line up \\
+        \hline
+        \textbf{WP4} & Customer wants to book a visit in the future \\
+        \hline
+        \textbf{WP5} & Customer go to the supermarket and he/she has a booking/lined up \\
+        \hline
+        \textbf{WP6} & Customer go to the supermarket and he/she does not have a booking/didn't line up \\
+        \hline
+        \textbf{WP7} & Grocery store has a limited capacity due to the Covid19 restrictions \\
+        \hline
+        \textbf{WP8} & The store manager wants to monitor and control entries in his/her store \\
+        \hline
+    \end{tabular}}
+\end{center}
 
 \subsection{Shared Phenomena}
+\begin{center}
+    {\renewcommand{\arraystretch}{2.4}%
+    \begin{tabular}{L{2cm}L{14cm}}
+        \hline
+        \textbf{SP1} & Customer books a visit \\
+        \hline
+        \textbf{SP2} & Customer specifies what he/she will buy (or the shop departments he/she will mostly go to) in his/her next visit \\
+        \hline
+        \textbf{SP3} & Customer lines up remotely \\
+        \hline
+        \textbf{SP4} & Customer lines up at the grocery store \\
+        \hline
+        \textbf{SP5} & Customer is called by the CLup system \\
+        \hline
+        \textbf{SP6} & Customer shows his/her number entering the store \\
+        \hline
+        \textbf{SP7} & Customer shows his/her QR Code entering the store \\
+        \hline
+    \end{tabular}}
+\end{center}
 
 \subsection{Goals}
+\begin{center}
+    {\renewcommand{\arraystretch}{2.4}%
+    \begin{tabular}{L{2cm}L{14cm}}
+        \hline
+        \textbf{G1} & Allow customers to enter the store once their number has been called \\
+        \hline
+        \textbf{G2} & Customers who go to the supermarket without a number/booking are allowed to line up at the store \\
+        \hline
+        \textbf{G3} & Inside the grocery store it must be feasible to follow Covid19 regulations \\
+        \hline
+        \textbf{G4} & Outside the grocery store there must not be long queues or overcrowding \\
+        \hline
+        \textbf{G5} & Customer is allowed to book a visit throught the CLup system \\
+        \hline
+        \textbf{G6} & Customer is allowed to line up throught the CLup system \\
+        \hline
+        \textbf{G7} & The store manager is allowed to control entrances to his/her store \\
+        \hline
+        \textbf{G8} & The store manager is allowed to monitor entrances of customers that used the QR Code \\
+        \hline
+        \textbf{G9} & Customer is allowed to approach the store in time with respect to his position in the queue \\
+        \hline
+    \end{tabular}}
+\end{center}
