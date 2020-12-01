@@ -1,9 +1,32 @@
-In the specification document presented by the client we found some points that lacked in precision. In order to better clarify and to make you understand better the content of this document we decided to introduce those assumptions.
+\subsection{Regulatory policies}
+The CLup application will ask for user personal informations like name, surname, email adress and phone number. Phone numbers and email addresses won't be used for commercial purposes.
+Personal informations will be processed in compliance with the GDPR regulations.
+
+Moreover, the system will have to ask for users' permission in order to retrieve and use their position. GPS positions will be stored for as long it's needed to compute the route to the grocery store.
+
+\subsection{Hardware limitations}
+\begin{itemize}
+    \item Mobile application
+    \begin{itemize}
+        \item iOS or Android smartphone
+        \item 2G/3G/4G/Wi-Fi Internet connection
+        \item GPS
+    \end{itemize}
+    \item Web application
+    \begin{itemize}
+        \item Modern web browser
+    \end{itemize}
+\end{itemize}
+
+\subsection{Interfaces to other applications}
+In the first release of CLup no public interfaces will be opened to third party services.
+
 \subsection{Text assumptions}
+In the specification document presented by the client we found some points that lacked in precision. In order to better clarify and to make you understand better the content of this document we decided to introduce those assumptions.
 \begin{itemize}
     \item Entrances monitoring is referred to customers using their personal QR code.
     \item QR Code scanning is not mandatory: customers who will scan their QR code when entering the store will contribute to entrances monitoring, thoose who will not will not contribute to such statistics.
-    \item Previous visits durations are inserted in the CLup system in some way.
+    \item Previous visits durations are inserted in the CLup system.
 \end{itemize}
 
 \subsection{Domain assumptions}
@@ -18,7 +41,7 @@ In the specification document presented by the client we found some points that 
             \hline
             \textbf{D3} & Customer who lines up has a GPS enabled device \\
             \hline
-            \textbf{D4} & GPS is enabled between the line up and the departure to approach the store \\
+            \textbf{D4} & GPS is enabled between the line up request and the departure to approach the store \\
             \hline
             \textbf{D5} & The user has a working internet connection \\
             \hline
