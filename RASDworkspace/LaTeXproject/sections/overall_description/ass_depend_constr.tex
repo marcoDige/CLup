@@ -1,0 +1,52 @@
+In the specification document presented by the client we found some points that lacked in precision. In order to better clarify and to make you understand better the content of this document we decided to introduce those assumptions.
+\subsection{Text assumptions}
+\begin{itemize}
+    \item Entrances monitoring is referred to customers using their personal QR code.
+    \item QR Code scanning is not mandatory: customers who will scan their QR code when entering the store will contribute to entrances monitoring, thoose who will not will not contribute to such statistics.
+    \item Previous visits durations are inserted in the CLup system in some way.
+\end{itemize}
+
+\subsection{Domain assumptions}
+
+    \begin{center}
+        {\renewcommand{\arraystretch}{2}%
+        \begin{tabular}{L{2cm}L{12cm}}
+            \hline
+            \textbf{D1} & The CLup system is enabled only when entrances control is needed \\
+            \hline
+            \textbf{D2} & Store has a capacity greater than 0 \\
+            \hline
+            \textbf{D3} & Customer who lines up has a GPS enabled device \\
+            \hline
+            \textbf{D4} & GPS is enabled between the line up and the departure to approach the store \\
+            \hline
+            \textbf{D5} & The user has a working internet connection \\
+            \hline
+            \textbf{D6} & The store has an available employee to serve customers who physically want to line up and retrieve a number \\
+            \hline
+            \textbf{D7} & The store employee who lines up customers will call them when they are allowed to enter the store \\
+            \hline
+            \textbf{D8} & Stores are uniquely identified \\
+            \hline
+            \textbf{D9} & The customer's device, the store and the CLup system have a syncronized date and time \\
+            \hline
+            \textbf{D10} & A QR code scanner will be available entering the store \\
+            \hline
+            \textbf{D11} & The store is physically accessible \\
+            \hline
+            \textbf{D12} & There is a route from the customer to the store \\
+            \hline
+            \textbf{D13} & The estimated time to enter the store is greater than the estimated time to approach the store \\
+            \hline
+            \textbf{D14} & The customer stay at the store is limited in time \\
+            \hline
+            \textbf{D15} & No two customers have the same number when entering at the same time \\
+            \hline
+            \textbf{D16} & The customer who specifies what he/she will buy/what departments he/she will go to will comply with his/her estimations \\
+            \hline
+            \textbf{D17} & Customer has a CLup compatible device \\
+            \hline
+            \textbf{D18} & Store has a CLup compatible device \\
+            \hline
+        \end{tabular}}
+    \end{center}
