@@ -5,5 +5,5 @@
 *.out
 *.synctex.gz
 *.toc
-DDworkspace/LaTeXproject/main.pdf
-RASDworkspace/LaTeXproject/main.pdf
+*.synctex(busy)
+*.pdf
