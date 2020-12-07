@@ -1,6 +1,6 @@
 \subsection{List of requirements}
 \begin{center}
-    {\renewcommand{\arraystretch}{2}%
+    {\renewcommand{\arraystretch}{2}
     \begin{longtable}{L{2cm}L{12cm}}
         \hline
         \textbf{R1} & Visitors are allowed to register as customers through the CLup application \\
@@ -57,3 +57,359 @@
 \end{center}
 
 \subsection{Mapping}
+\begin{center}
+    {\renewcommand{\arraystretch}{2}
+    \begin{longtable}{L{2cm}L{6cm}L{6cm}}
+        \hline
+        \textbf{Goal} & \textbf{Requirements} & \textbf{Domain assumptions} \\
+        \hline
+        \textbf{G1} & R1, R2, R3, R4, R6 & D5, D18, D19 \\
+        \hline
+        \textbf{G2} & R3, R4, R6, R8, R9, R11, R17, R18, R19, R20 & D1, D3, D4, D5, D7, D8, D10, D14, D15, D18, D19 \\
+        \hline
+        \textbf{G3} & R3, R4, R6, R8, R10, R14 & D3, D7, D11, D12, D13, D16, D18, D19 \\
+        \hline
+        \textbf{G4} & R4, R6, R7 & D2, D3, D6, D12, D13 \\
+        \hline
+        \textbf{G5} & R4, R5, R6, R7, R8, R10, R15, R20, R21, R23 & D1, D2, D5, D6, D7, D15, D17, D18, D19 \\
+        \hline
+        \textbf{G6} & R4, R6, R7, R9, R11 & D1, D2, D3, D5, D6, D8, D10, D15, D18, D19 \\
+        \hline
+        \textbf{G7} & R3, R21, R22, R24 & D1, D3, D5, D9, D10, D13, 18 \\
+        \hline
+        \textbf{G8} & R3, R13, R15, R16, R19 & D1, D2, D3, D5, D9, D10, D13, D18 \\
+        \hline
+        \textbf{G9} & R4, R5, R12, R14 & D1, D5, D11, D18, D19 \\
+        \hline
+        \textbf{G10} & R3, R16, R17, R18 & D4, D5, D10, D12, D13, D14, D18 \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G1} & \textbf{Everyone can use and interact with the CLup system accordingly with itsfeatures and processes} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R1 & Visitors are allowed to register as customers through the CLup application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R2 & The store manager is allowed to register as store manager through the CLup web app \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D19 & Store has a CLup compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G2} & \textbf{All customers who reserve a place in the queue will be called} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R8 & The employee can report the entrance related to a line up number or a visit and the exit of each person from the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R9 & The line up numbers and the visits are invalidated after a period of time if not used to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R11 & The CLup system notifies the employee when it’s time to call a visitor who previously asked to line up at the entry point \\
+        \hline
+        \rowcolor{shadeColorRequirement} R17 & The application monitors the customer’s position and computes the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorRequirement} R18 & The application notifies the customer when the estimated queue waiting time is near the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorRequirement} R19 & The system generates a unique (in an appropriate time interval) number to identify the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R20 & The system pushes forward the queue based on the reported exits and the scheduled visits \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D1 & All customers use CLup to access the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D3 & Store has a capacity greater than 0 \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D4 & GPS is enabled between the line up request and the departure to approach the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D7 & The store has an available employee to check for entrances and to report exits \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D8 & The store employee who lines up customers will call them when they are allowed to enter the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D10 & The customer’s device, the store and the CLup system have a syncronized date and time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D14 & The estimated time to enter the store is greater than the estimated time to approach the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D15 & The customer stay at the store is limited in time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D19 & Store has a CLup compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G3} & \textbf{Allow customers to enter the store once their number has been called or ifthey have booked a visit for that time slot} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R8 & The employee can report the entrance related to a line up number or a visit and the exit of each person from the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R10 & The employee can see the line up numbers/visits that are allowed to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R14 & The CLup system can acquire the scanned QR code \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D3 & Store has a capacity greater than 0 \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D7 & The store has an available employee to check for entrances and to report exits \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D11 & A QR code scanner will be available entering the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D12 & The store is physically accessible \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D13 & There is a route from the customer to the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D16 & No two customers have the same number when entering at the same time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D19 & Store has a CLup compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G4} & \textbf{Customers who go to the supermarket without a number/booking are allowedto line up at the store} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R7 & The employee can line up a visitor who asked for that and can give him/her the number associated with the position in the queue \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D2 & The CLup line up system is enabled only when entrances control is needed \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D3 & Store has a capacity greater than 0 \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D6 & The store has an available employee to serve customers who physically want to line up and retrieve a number \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D12 & The store is physically accessible \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D13 & There is a route from the customer to the store \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G5} & \textbf{Inside the grocery store it must be feasible to follow Covid19 regulations} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R5 & The store manager can insert and edit store information \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R7 & The employee can line up a visitor who asked for that and can give him/her the number associated with the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R8 & The employee can report the entrance related to a line up number or a visit and the exit of each person from the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R10 & The employee can see the line up numbers/visits that are allowed to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R15 & The CLup application has a section to line up \\
+        \hline
+        \rowcolor{shadeColorRequirement} R20 & The system pushes forward the queue based on the reported exits and the scheduled visits \\
+        \hline
+        \rowcolor{shadeColorRequirement} R21 & The CLup application has a section to book a visit \\
+        \hline
+        \rowcolor{shadeColorRequirement} R23 & The system schedules visits based on related details \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D1 & All customers use CLup to access the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D2 & The CLup line up system is enabled only when entrances control is needed \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D6 & The store has an available employee to serve customers who physically want to line up and retrieve a number \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D7 & The store has an available employee to check for entrances and to report exits \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D15 & The customer stay at the store is limited in time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D17 & The customer who specifies what he/she will buy/what departments he/she will go to will comply with his/her estimations \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D19 & Store has a CLup compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G6} & \textbf{Outside the grocery store there must not be long queues or overcrowding} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R7 & The employee can line up a visitor who asked for that and can give him/her the number associated with the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R9 & The line up numbers and the visits are invalidated after a period of time if not used to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R11 & The CLup system notifies the employee when it’s time to call a visitor who previously asked to line up at the entry point \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D1 & All customers use CLup to access the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D2 & The CLup line up system is enabled only when entrances control is needed \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D3 & Store has a capacity greater than 0 \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D6 & The store has an available employee to serve customers who physically want to line up and retrieve a number \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D8 & The store employee who lines up customers will call them when they are allowed to enter the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D10 & The customer’s device, the store and the CLup system have a syncronized date and time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D15 & The customer stay at the store is limited in time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D19 & Store has a CLup compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G7} & \textbf{Customer is allowed to book a visit through the CLup system} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R21 & The CLup application has a section to book a visit \\
+        \hline
+        \rowcolor{shadeColorRequirement} R22 & The CLup application shows available time slots for visits \\
+        \hline
+        \rowcolor{shadeColorRequirement} R24 & The customer can insert additional details like what he/she is going to buy, the estimated visit duration or what departments he/she will go to) \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D1 & All customers use CLup to access the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D3 & Store has a capacity greater than 0 \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D9 & Stores are uniquely identified \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D10 & The customer’s device, the store and the CLup system have a syncronized date and time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D13 & There is a route from the customer to the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G8} & \textbf{Customer is allowed to line up through the CLup system} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R13 & Customer can generate a QR code to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R15 & The CLup application has a section to line up \\
+        \hline
+        \rowcolor{shadeColorRequirement} R16 & The CLup application shows the estimated queue waiting time, the queue size, the estimated travel time and the number related to the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R19 & The system generates a unique (in an appropriate time interval) number toidentify the position in the queue \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D1 & All customers use CLup to access the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D2 & The CLup line up system is enabled only when entrances control is needed \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D3 & Store has a capacity greater than 0 \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D9 & Stores are uniquely identified \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D10 & The customer’s device, the store and the CLup system have a syncronized date and time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D13 & There is a route from the customer to the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G9} & \textbf{The store manager is allowed to monitor entrances of customers that used theQR Code} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R5 & The store manager can insert and edit store information \\
+        \hline
+        \rowcolor{shadeColorRequirement} R12 & The store manager can see charts and analysis related to entrances made with the QR code \\
+        \hline
+        \rowcolor{shadeColorRequirement} R14 & The CLup system can acquire the scanned QR code \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D1 & All customers use CLup to access the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D11 & A QR code scanner will be available entering the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D19 & Store has a CLup compatible device \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G10} & \textbf{Customer is allowed to approach the store in time with respect to his positionin the queue} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R16 & The CLup application shows the estimated queue waiting time, the queue size, the estimated travel time and the number related to the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R17 & The application monitors the customer’s position and computes the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorRequirement} R18 & The application notifies the customer when the estimated queue waiting time is near the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D4 & GPS is enabled between the line up request and the departure to approach the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D5 & The user has a working internet connection \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D10 & The customer’s device, the store and the CLup system have a syncronized date and time \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D12 & The store is physically accessible \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D13 & There is a route from the customer to the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D14 & The estimated time to enter the store is greater than the estimated time to approach the store \\
+        \hline
+        \rowcolor{shadeColorDomainAssumption} D18 & Customer who wants to directly interact with the CLup system has a compatible device \\
+        \hline
+    \end{longtable}}
+\end{center}
