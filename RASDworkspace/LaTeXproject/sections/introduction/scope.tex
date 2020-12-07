@@ -2,7 +2,7 @@ The system aims to provide a solution to reduce overcrowding both inside and out
 Due to the coronavirus emergency supermarkets need to restrict access to their stores to avoid having crowds inside, but at the same time they must avoid long queues outside which are themselves a potential risk. \newline
 
 The application would work as a digital counterpart to the common situation where people who are in line for a service retrieve a number that gives their position in the queue.
-The system should provide both the possibility to line up remotely (for example through a mobile phone) and at the grocery store for those customers who do not have access to the required technology (\textbf{Lineup functionality}).
+The system should provide both the possibility to line up remotely (for example through a mobile phone) and at the grocery store for those customers who do not have access to the required technology (\textbf{Line up functionality}).
 Each customer that lined up should receive a number. Users should wait until his/her number is being called (or close to being called) to approach the store. This should reduce overcrowdings outside supermarkets.
 Users can also scan a QR code when entering the grocery store, enabling the store manager to monitor entrances. \newline
 
@@ -11,7 +11,7 @@ CLup can ask the customer details about his/her visit or it can compute an estim
 
 Ultimately, the system will have to be easy-to-use given that everyone needs to do grocery shopping and the more users will use the system remotely the more CLup will be effective.
 
-\subsection{World Phenomena} %Customer/A customer
+\subsection{World Phenomena}
 \begin{center}
     {\renewcommand{\arraystretch}{2}%
     \begin{tabular}{L{2cm}L{12cm}}
@@ -32,12 +32,16 @@ Ultimately, the system will have to be easy-to-use given that everyone needs to 
         \hline
         \textbf{WP8} & The store manager wants to monitor and control entries in his/her store \\
         \hline
+        \textbf{WP9} & Customer exits the store \\
+        \hline
+        \textbf{WP10} & Customer who has lined up at the store entry point is called by the employee \\
+        \hline
     \end{tabular}}
 \end{center}
 
 \subsection{Shared Phenomena}
 \begin{center}
-    {\renewcommand{\arraystretch}{2}%
+    {\renewcommand{\arraystretch}{2}
     \begin{tabular}{L{2cm}L{12cm}}
         \hline
         \textbf{SP1} & Customer books a visit \\
@@ -55,29 +59,32 @@ Ultimately, the system will have to be easy-to-use given that everyone needs to 
         \textbf{SP7} & Customer shows his/her QR Code entering the store \\
         \hline
         \textbf{SP8} & Customer shows his/her visit booking entering the store \\
+        \hline
+        \textbf{SP9} & Store employee uses CLup to check entrances and insert exits \\
+        \hline
     \end{tabular}}
 \end{center}
 
 \subsection{Goals}
 \begin{center}
-    {\renewcommand{\arraystretch}{2}%
+    {\renewcommand{\arraystretch}{2}
     \begin{tabular}{L{2cm}L{12cm}}
         \hline
-        \textbf{G1} & All customers who reserve a place in the queue must be able to enter the supermarket \\
+        \textbf{G1} & Everyone can use and interact with the CLup system accordingly with its features and processes \\
         \hline
-        \textbf{G2} & Allow customers to enter the store once their number has been called or if they have booked a visit for that time slot \\
+        \textbf{G2} & All customers who reserve a place in the queue will be called \\
         \hline
-        \textbf{G3} & Customers who go to the supermarket without a number/booking are allowed to line up at the store \\
+        \textbf{G3} & Allow customers to enter the store once their number has been called or if they have booked a visit for that time slot \\
         \hline
-        \textbf{G4} & Inside the grocery store it must be feasible to follow Covid19 regulations \\
+        \textbf{G4} & Customers who go to the supermarket without a number/booking are allowed to line up at the store \\
         \hline
-        \textbf{G5} & Outside the grocery store there must not be long queues or overcrowding \\
+        \textbf{G5} & Inside the grocery store it must be feasible to follow Covid19 regulations \\
         \hline
-        \textbf{G6} & Customer is allowed to book a visit through the CLup system \\
+        \textbf{G6} & Outside the grocery store there must not be long queues or overcrowding \\
         \hline
-        \textbf{G7} & Customer is allowed to line up through the CLup system \\
+        \textbf{G7} & Customer is allowed to book a visit through the CLup system \\
         \hline
-        \textbf{G8} & The store manager is allowed to control entrances to his/her store \\
+        \textbf{G8} & Customer is allowed to line up through the CLup system \\
         \hline
         \textbf{G9} & The store manager is allowed to monitor entrances of customers that used the QR Code \\
         \hline
