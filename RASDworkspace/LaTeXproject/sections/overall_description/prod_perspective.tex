@@ -4,11 +4,11 @@ The below high-level diagram provides a static information model of the applicat
 
 The main aspects of Clup modelled in the below diagram are:
 \begin{itemize}
-    \item The application need to consider the presence of unregistered customers who arrive at the supermarket and require a place in the queue. For this reason, two types of customer (unregistered and registered) are distinguished in the diagram.
+    \item The application need to consider the presence of unregistered customers who arrive at the supermarket and require a place in the queue. For this reason, two types of customer (unregistered and registered) are distinguished in the diagram
     \item Given the need to allow the reservation of a seat in the queue to those who do not use the system directly, it is necessary to distinguish between 2 types of Lineup turn (physical and virtual).
-    \item A registered customer can book a Visit or a Lineup turn. To facilitate the reading of the diagram these two actions were generalized to an abstract class Reservation extended by Visit class and LineupTurn class.
-    \item An unregistered customer can book only a physical lineup turn. This reservation is handled by a Store employee who will act as a link between the system and the unregistered customer.
-    \item Each entrance could be monitored by the store manager.
+    \item A registered customer can book a Visit or a Lineup turn. To facilitate the reading of the diagram these two actions were generalized to an abstract class Reservation extended by Visit class and LineupTurn class. the possibility to generate a QR code associated to a reservation of a seat in queue is represented in the diagram by the optional attribute "qrCode" of the VirtualLineupTurn class
+    \item An unregistered customer can book only a physical lineup turn. This reservation is handled by a Store employee who will act as a link between the system and the unregistered customer
+    \item Each entrance could be monitored by the store manager
 \end{itemize}
 \includegraphics[width=\textwidth]{class_diagram.png}
 
@@ -28,6 +28,6 @@ In the second state diagram, we model the behavior our system has to have when a
 \includegraphics[width=\textwidth]{state_diagram2.png} \newline
 
 
-In the third and last diagram, we model the behavior our system has to have when there is a new request for booking a visit. Attention is paid to the possibility of following various paths to reach the end of the request. These numerous paths are due to the optional insertion of information related to the visit (department, products to buy, and estimated time). Also, for long-term customers, the estimated time is calculated by the system based on previous entries. \newline 
+In the third and last diagram, we model the behavior our system has to have when there is a new request for booking a visit. Attention is paid to the possibility of following various paths to reach the end of the request. These numerous paths are due to the optional insertion of information related to the visit (department, products to buy, and estimated time). Also, for long-term customers, the estimated time could be calculated by the system based on previous entries. \newline 
 
 \includegraphics[width=\textwidth]{state_diagram3.png} \newline
