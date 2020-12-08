@@ -1,6 +1,6 @@
 Here is the application domain model of this project. In particular, this section focuses on the object model (\textbf{static information models} and \textbf{dynamic class behaviour models}).
 \subsection{Static Information Model}
-The below high-level diagram provides a static information model of the application domain. Basically, it is the structure of the world, it contains only few attributes, and it doesn't include every class that will be necessary to define the model of the CLup system. \newline
+The below high-level diagram provides a static information model of the application domain. Basically, it is the structure of the world, it contains only few attributes, and it doesn't include every class that will be necessary to define the model of the CLup system.
 
 The main aspects of Clup modelled in the below diagram are:
 \begin{itemize}
@@ -14,20 +14,21 @@ The main aspects of Clup modelled in the below diagram are:
 
 
 \subsection{Dynamic Class Behaviour Models}
-The below state diagrams shows some	critical aspects of	the	application, how the behaviour of these critical aspects is modeled and the evolution of their states. \newline
+The below state diagrams shows some	critical aspects of	the	application, how the behaviour of these critical aspects is modeled and the evolution of their states.
 
-In the first state diagram, we model the behavior our system has to have when there is a new request to reserve a virtual lineup turn. Particular attention is paid to the possibility of generating a QR code and the management of waiting in the virtual lineup. \newline
+\medskip
+In the first state diagram, we model the behavior our system has to have when there is a new request to reserve a virtual lineup turn. Particular attention is paid to the possibility of generating a QR code and the management of waiting in the virtual lineup.
 
+\medskip
+\includegraphics[width=\textwidth]{state_diagram1.png}
 
-\includegraphics[width=\textwidth]{state_diagram1.png} \newline
+\medskip
+In the second state diagram, we model the behavior our system has to have when a store employee notifies a new request to reserve a physical lineup turn. Attention is paid to the difference from the previous phenomenon. In this case, the system will limit itself to acquire the demand and to process it with the other demands (also virtual)
 
+\medskip
+\includegraphics[width=\textwidth]{state_diagram2.png}
 
-In the second state diagram, we model the behavior our system has to have when a store employee notifies a new request to reserve a physical lineup turn. Attention is paid to the difference from the previous phenomenon. In this case, the system will limit itself to acquire the demand and to process it with the other demands (also virtual) \newline
+\medskip
+In the third and last diagram, we model the behavior our system has to have when there is a new request for booking a visit. Attention is paid to the possibility of following various paths to reach the end of the request. These numerous paths are due to the optional insertion of information related to the visit (department, products to buy, and estimated time). Also, for long-term customers, the estimated time could be calculated by the system based on previous entries.
 
-
-\includegraphics[width=\textwidth]{state_diagram2.png} \newline
-
-
-In the third and last diagram, we model the behavior our system has to have when there is a new request for booking a visit. Attention is paid to the possibility of following various paths to reach the end of the request. These numerous paths are due to the optional insertion of information related to the visit (department, products to buy, and estimated time). Also, for long-term customers, the estimated time could be calculated by the system based on previous entries. \newline 
-
-\includegraphics[width=\textwidth]{state_diagram3.png} \newline
+\includegraphics[width=\textwidth]{state_diagram3.png}
