@@ -1,19 +1,35 @@
+\subsection{Scenarios}
+
+\begin{itemize}
+    \item \textbf{Scenario 1: The Store Manager discovers the CLup System and decides to use it for his/her store.} John is the Store Manager of the main supermarket in Via Pacini, Milan. With the start of the COVID emergency and the delineation by the government of new rules on the entrances of people into the store, its store has created very long queues for 2 weeks outside the store. John realizes the danger of the situation and decides to look for a system that can regulate the entrances avoiding the creation of long queues, thus finding CLup.
+    Once decided to adopt CLup for the management of queues and etrances he registers via the web app. He inserts information about him, inserts all the store information, and then decides to allow access to the system to his 5 employees: Ellen, Mike, Harry, Louis and Ricky who will handle the various phases of interaction with the system. This 5 employees are registered and will then be able to log in with their accounts as employees to the system.
+    \item \textbf{Scenario 2: .}
+    \item \textbf{Scenario 3: A User who could not reserve the seat in the queue virtually, goes to the store.} Lily is a pretty 80-year-old lady who lives with her 86-year-old husband and buys groceries every week. Unfortunately, Lily doesn’t have a smartphone and an internet connection to book a seat in the queue using CLup. Lily shows up at the supermarket and approaches the store entrance to ask if it’s possible to enter. Mike, the employee on shift at the supermarket entrance at that moment informs Lily that there is no problem and that he will be the one to reserve a queue for her.
+    Mike, from his computer, makes the request to CLup web app, sees a number being generated and prints it to give it to Lily. He also informs Lily that he can wait outside the store and he will alert her when the time comes to enter.
+    \item \textbf{Scenario 4: .}
+    \item \textbf{Scenario 5: .}
+    \item \textbf{Scenario 6: .}
+    \item \textbf{Scenario 7: .}
+    \item \textbf{Scenario 8: .}
+\end{itemize}
+
+\subsection{Application Domain Model}
 Here is the application domain model of this project. In particular, this section focuses on the object model (\textbf{static information models} and \textbf{dynamic class behaviour models}).
-\subsection{Static Information Model}
+\subsubsection{Static Information Model}
 The below high-level diagram provides a static information model of the application domain. Basically, it is the structure of the world, it contains only few attributes, and it doesn't include every class that will be necessary to define the model of the CLup system.
 
 The main aspects of Clup modelled in the below diagram are:
 \begin{itemize}
-    \item The application need to consider the presence of unregistered customers who arrive at the supermarket and require a place in the queue. For this reason, two types of customer (unregistered and registered) are distinguished in the diagram
+    \item The application need to consider the presence of visitor who arrive at the supermarket and require a place in the queue. For this reason, two types of Store Clients (visitor and customer) are distinguished in the diagram
     \item Given the need to allow the reservation of a seat in the queue to those who do not use the system directly, it is necessary to distinguish between 2 types of Lineup turn (physical and virtual).
-    \item A registered customer can book a Visit or a Lineup turn. To facilitate the reading of the diagram these two actions were generalized to an abstract class Reservation extended by Visit class and LineupTurn class. the possibility to generate a QR code associated to a reservation of a seat in queue is represented in the diagram by the optional attribute "qrCode" of the VirtualLineupTurn class
-    \item An unregistered customer can book only a physical lineup turn. This reservation is handled by a Store employee who will act as a link between the system and the unregistered customer
+    \item A customer can book a Visit or a Lineup turn. To facilitate the reading of the diagram these two actions were generalized to an abstract class Reservation extended by Visit class and LineupTurn class. the possibility to generate a QR code associated to a reservation of a seat in queue is represented in the diagram by the optional attribute "qrCode" of the VirtualLineupTurn class
+    \item A visitor can book only a physical lineup turn. This reservation is handled by a Store employee who will act as a link between the system and the visitor
     \item Each entrance could be monitored by the store manager
 \end{itemize}
 \includegraphics[width=\textwidth]{class_diagram.png}
 
 
-\subsection{Dynamic Class Behaviour Models}
+\subsubsection{Dynamic Class Behaviour Models}
 The below state diagrams shows some	critical aspects of	the	application, how the behaviour of these critical aspects is modeled and the evolution of their states.
 
 \medskip
