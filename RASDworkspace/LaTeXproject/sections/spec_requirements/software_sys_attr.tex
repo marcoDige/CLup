@@ -1,0 +1,16 @@
+\subsection{Reliability}
+The system has to be able to run continuosly without any interruptions for long periods of time. To be fault tolerant the system backend deployment must take advantage of some sort of replication and redundancy. The system must have offline backups of the data storage to exploit in a disaster recovery after a data loss.
+
+\subsection{Availability}
+Given the fact that CLup is not an emergency service or anything related to critical situations the system must provide an availability of 99.9\%. This means that the average time between the occurence of a fault and service recovery (MTTR) has to be contained at around 0.365 days per year. 
+
+\subsection{Security}
+The data provided by the users contain some sensitive informations, so the security aspect cannot be underestimated. The central database must be protected with all the available measures to avoid any external or internal attack. The passwords inside the data store has to be encrypted and in case of password recovery this must never be sent in clear.
+
+To communicate over the internet CLup must use some sort of encryption to avoid traffic sniffing and spoofing, thus avoiding cheating attacks and guaranteeing privacy and consistency.
+
+\subsection{Maintanability}
+The system must guarantee a high level of maintainability. Appropriate design patterns should be used, toghether with good standards. The code must be well documented and hard-coding must be avoided. A testing routine has to be provided and it has to cover at least 75\% of the entire codebase, excluding interfaces code.
+
+\subsection{Portability}
+The application must be developed for two different platforms: iOS and Android smartphones. The web application must run on any OS (like Windows, Mac OS, Linux, ecc) that supports a web browser. Even mobile devices like iPads and Android tablets must be able to access the web app.
