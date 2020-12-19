@@ -18,11 +18,10 @@ sig Customer extends StoreClient{}
 
 sig Location{}
 
-sig Store{
+one sig Store{
     location: Location,
     storeManager: StoreManager,
     employees: set Employee,
-    reservations: set Reservation,
     capacity: Int,
     realTimeOccupancy: Int one -> Time
 } {
@@ -70,6 +69,7 @@ sig VirtualLineUpTurn extends LineUpTurn{
 }
 
 sig Entrance{
+    checkedBy: Employee
 }
 
 sig VisitInformations{
@@ -100,17 +100,17 @@ fact {
     all disj r1, r2: Reservation | r1.entrance.Time & r2.entrance.Time = none
 }
 
-pred CustomerLinesUp[u: Customer, r: VirtualLineUpTurn, t: Time] {
+pred CustomerLinesUp[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
     r.client = u
+    r.store = s
     r.status.t = WAITING
     r.estimatedQueueTime.t > r.estimatedTravelTime.t
     r.entrance.t = none
 }
 run CustomerLinesUp for 3
 
-pred CustomerIsCalled[u: Customer, r: VirtualLineUpTurn, t: Time] {
-    CustomerLinesUp[u, r, t]
-    r.client = u
+pred CustomerIsCalled[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
+    CustomerLinesUp[u, s, r, t]
     r.status.t = WAITING
     r.status.(t.next) = CALLED
     r.estimatedQueueTime.(t.next) = r.estimatedTravelTime.(t.next) 
@@ -120,21 +120,36 @@ pred CustomerIsCalled[u: Customer, r: VirtualLineUpTurn, t: Time] {
 run CustomerIsCalled for 3
 
 pred CustomerEntersTheStore[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, e: Entrance, emp: Employee] {
-    CustomerLinesUp[u, r, t]
-    CustomerIsCalled[u, r, t]
+    CustomerLinesUp[u, s, r, t]
+    CustomerIsCalled[u, s, r, t]
     let t' = t.next | (
-    r.client = u and
     r.status.(t') = CALLED and
     r.status.(t'.next) = USED and
     r.entrance.(t'.next) = e and
-    r.store = s and
     s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and
     emp in s.employees and 
     r.estimatedQueueTime.(t'.next) = r.estimatedTravelTime.(t'.next) and
     r.estimatedQueueTime.(t'.next) = 0
     )
 }
-run CustomerEntersTheStore for 5
+run CustomerEntersTheStore for 3
+
+pred CustomerBooksAVisit[u: Customer, s: Store, r: Visit, t: Time] {
+    r.client = u
+    r.store = s
+    r.status.t = WAITING
+    r.entrance.t = none
+}
+
+pred CustomerEntersTheStoreVisit[u: Customer, s: Store, r: Visit, t: Time, e: Entrance, emp: Employee] {
+    CustomerBooksAVisit[u, s, r, t]
+    r.status.(t.next) = USED
+    emp in s.employees
+    e.checkedBy = emp
+    s.realTimeOccupancy.t.next = s.realTimeOccupancy.(t.next)
+    r.entrance.(t.next) = e
+}
+run CustomerEntersTheStoreVisit for 3
 
 pred Show{}
 run Show for 3
