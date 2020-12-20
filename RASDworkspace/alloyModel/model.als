@@ -82,6 +82,21 @@ sig QRCode{
 }
 
 fact {
+    all r: Reservation | #r.entrance.Time = 1
+}
+
+fact {
+    all t: Time | all l: LineUpTurn | (l.status.t = CALLED) => (not WAITING in l.status.(t.next))
+    all t: Time | all l: LineUpTurn | (l.status.t = USED) => (not WAITING in l.status.(t.next) && not CALLED in l.status.(t.next) && not EXPIRED in l.status.(t.next))
+    all t: Time | all l: LineUpTurn | (l.status.t = EXPIRED) => (not WAITING in l.status.(t.next) && not CALLED in l.status.(t.next) && not USED in l.status.(t.next))
+}
+
+fact {
+    all t: Time | all l: Visit | (l.status.t = USED) => (not WAITING in l.status.(t.next) && not EXPIRED in l.status.(t.next))
+    all t: Time | all l: Visit | (l.status.t = EXPIRED) => (not WAITING in l.status.(t.next) && not USED in l.status.(t.next))
+}
+
+fact {
     all t: Time | all r: VirtualLineUpTurn | (r.status.t = CALLED) => (r.estimatedQueueTime.t = r.estimatedTravelTime.t)
 }
 
@@ -94,7 +109,7 @@ fact {
 }
 
 fact {
-    all v1, v2: Visit | v1.informations != v2.informations
+    all disj v1, v2: Visit | v1.informations != v2.informations
 }
 
 fact {
@@ -144,8 +159,7 @@ pred CustomerIsCalled[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
     CustomerLinesUp[u, s, r, t]
     r.status.t = WAITING
     r.status.(t.next) = CALLED
-    r.estimatedQueueTime.(t.next) = r.estimatedTravelTime.(t.next) 
-    r.estimatedQueueTime.(t.next) = 0
+    r.estimatedQueueTime.(t.next) = r.estimatedTravelTime.(t.next)
     r.entrance.(t.next) = none
 }
 pred CustomerEntersTheStore[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, e: Entrance, emp: Employee] {
