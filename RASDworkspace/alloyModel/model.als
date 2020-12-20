@@ -38,16 +38,16 @@ one sig EXPIRED extends ReservationStatus{}
 abstract sig Reservation{
     client: StoreClient,
     store: Store,
-    status: ReservationStatus -> Time,
+    status: ReservationStatus one -> Time,
     entrance: Entrance lone -> Time
 }{
-
+    all t: Time | (entrance.t != none) <=> (status.t = USED)
 }
 
 sig Visit extends Reservation{
     informations: VisitInformations
 } {
-    status.Time != CALLED and status.Time != WAITING
+    all t: Time | status.t != CALLED
 }
 
 abstract sig LineUpTurn extends Reservation{
@@ -69,13 +69,36 @@ sig VirtualLineUpTurn extends LineUpTurn{
 }
 
 sig Entrance{
-    checkedBy: Employee
+    checkedBy: (Employee + QRCode) lone -> Time
+} {
+    all t: Time | checkedBy.t != none <=> (some r: Reservation | r.entrance.t = this)
+    all t: Time | checkedBy.t in QRCode => (all v: Visit + PhysicalLineUpTurn | not (this in v.entrance.t))
 }
 
 sig VisitInformations{
 }
 
 sig QRCode{
+}
+
+fact {
+    all r: Reservation | r.client in Visitor <=> r in PhysicalLineUpTurn
+}
+
+fact {
+    all disj r1, r2: Reservation | r1.client != r2.client
+}
+
+fact {
+    all disj e1, e2: Entrance | all qr: QRCode | all t: Time | (e1.checkedBy.t = qr) => (e2.checkedBy.t != qr)
+}
+
+fact {
+    all disj v1, v2: VirtualLineUpTurn | v1.qrCode != v2.qrCode
+}
+
+fact {
+    all v: VirtualLineUpTurn | (some e: v.entrance.Time | some emp: Employee | emp in e.checkedBy.Time) => v.qrCode = none
 }
 
 fact {
@@ -107,8 +130,6 @@ pred CustomerLinesUp[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
     r.estimatedQueueTime.t > r.estimatedTravelTime.t
     r.entrance.t = none
 }
-run CustomerLinesUp for 3
-
 pred CustomerIsCalled[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
     CustomerLinesUp[u, s, r, t]
     r.status.t = WAITING
@@ -117,10 +138,7 @@ pred CustomerIsCalled[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
     r.estimatedQueueTime.(t.next) = 0
     r.entrance.(t.next) = none
 }
-run CustomerIsCalled for 3
-
 pred CustomerEntersTheStore[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, e: Entrance, emp: Employee] {
-    CustomerLinesUp[u, s, r, t]
     CustomerIsCalled[u, s, r, t]
     let t' = t.next | (
     r.status.(t') = CALLED and
@@ -128,11 +146,36 @@ pred CustomerEntersTheStore[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time
     r.entrance.(t'.next) = e and
     s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and
     emp in s.employees and 
+    e.checkedBy.(t'.next) = emp and
     r.estimatedQueueTime.(t'.next) = r.estimatedTravelTime.(t'.next) and
     r.estimatedQueueTime.(t'.next) = 0
     )
 }
-run CustomerEntersTheStore for 3
+run CustomerEntersTheStore for 5 but 3 Time
+
+
+pred CustomerLinesUpQRCode[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, qr: QRCode] {
+    CustomerLinesUp[u, s, r, t]
+    r.qrCode = qr
+}
+pred CustomerIsCalledQRCode[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, qr: QRCode] {
+    CustomerIsCalled[u, s, r, t]
+    CustomerLinesUpQRCode[u, s, r, t, qr]
+}
+pred CustomerEntersTheStoreQRCode[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, e: Entrance, qr: QRCode] {
+    CustomerIsCalledQRCode[u, s, r, t, qr]
+    let t' = t.next | (
+    r.status.(t') = CALLED and
+    r.status.(t'.next) = USED and
+    r.entrance.(t'.next) = e and
+    r.entrance.(t'.next).checkedBy.(t'.next) = qr and
+    s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and
+    r.estimatedQueueTime.(t'.next) = r.estimatedTravelTime.(t'.next) and
+    r.estimatedQueueTime.(t'.next) = 0
+    )
+}
+run CustomerEntersTheStoreQRCode for 5 but 3 Time
+
 
 pred CustomerBooksAVisit[u: Customer, s: Store, r: Visit, t: Time] {
     r.client = u
@@ -140,16 +183,15 @@ pred CustomerBooksAVisit[u: Customer, s: Store, r: Visit, t: Time] {
     r.status.t = WAITING
     r.entrance.t = none
 }
-
 pred CustomerEntersTheStoreVisit[u: Customer, s: Store, r: Visit, t: Time, e: Entrance, emp: Employee] {
     CustomerBooksAVisit[u, s, r, t]
     r.status.(t.next) = USED
     emp in s.employees
-    e.checkedBy = emp
+    e.checkedBy.(t.next) = emp
     s.realTimeOccupancy.t.next = s.realTimeOccupancy.(t.next)
     r.entrance.(t.next) = e
 }
-run CustomerEntersTheStoreVisit for 3
+run CustomerEntersTheStoreVisit for 5 but 2 Time
 
 pred Show{}
 run Show for 3
