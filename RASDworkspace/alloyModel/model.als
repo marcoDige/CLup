@@ -148,6 +148,31 @@ fact {
     all disj r1, r2: Reservation | r1.entrance.Time & r2.entrance.Time = none
 }
 
+pred CustomerLinesUpAtTheStore[u: Visitor, s: Store, r: PhysicalLineUpTurn, t: Time, emp: Employee] {
+    r.client = u
+    r.store = s
+    r.status.t = WAITING
+    r.entrance.t = none
+    emp in s.employees
+}
+pred CustomerIsCalledAtTheStore[u: Visitor, s: Store, r: PhysicalLineUpTurn, t: Time, emp: Employee] {
+    CustomerLinesUpAtTheStore[u, s, r, t, emp]
+    r.status.t = WAITING
+    r.status.(t.next) = CALLED
+    r.entrance.(t.next) = none
+}
+pred CustomerEntersTheStoreAtTheStore[u: Visitor, s: Store, r: PhysicalLineUpTurn, t: Time, e: Entrance, emp: Employee] {
+    CustomerIsCalledAtTheStore[u, s, r, t, emp]
+    let t' = t.next | (
+    r.status.(t') = CALLED and
+    r.status.(t'.next) = USED and
+    r.entrance.(t'.next) = e and
+    s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and 
+    e.checkedBy.(t'.next) = emp
+    )
+}
+run CustomerEntersTheStoreAtTheStore for 5 but 3 Time
+
 pred CustomerLinesUp[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
     r.client = u
     r.store = s
