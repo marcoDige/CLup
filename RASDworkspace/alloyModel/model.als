@@ -41,7 +41,7 @@ abstract sig Reservation{
     status: ReservationStatus one -> Time,
     entrance: Entrance lone -> Time
 }{
-    all t: Time | (entrance.t != none) <=> (status.t = USED)
+    all t: Time | (entrance.t != none) iff (status.t = USED)
 }
 
 sig Visit extends Reservation{
@@ -71,7 +71,7 @@ sig VirtualLineUpTurn extends LineUpTurn{
 sig Entrance{
     checkedBy: (Employee + QRCode) lone -> Time
 } {
-    all t: Time | checkedBy.t != none <=> (some r: Reservation | r.entrance.t = this)
+    all t: Time | checkedBy.t != none iff (some r: Reservation | r.entrance.t = this)
     all t: Time | checkedBy.t in QRCode implies (all v: Visit + PhysicalLineUpTurn | not (this in v.entrance.t))
 }
 
@@ -121,7 +121,7 @@ fact {
 
 //A PhysicalLineUpTurn is associated to a Visitor
 fact {
-    all r: Reservation | r.client in Visitor <=> r in PhysicalLineUpTurn
+    all r: Reservation | r.client in Visitor iff r in PhysicalLineUpTurn
 }
 
 //Different Reservations have different clients
@@ -146,7 +146,7 @@ fact {
 
 //LineUpNumber and estimatedQueueTime relation
 fact {
-    all disj l1, l2: VirtualLineUpTurn | all t: Time | (l1.estimatedQueueTime.t >= l2.estimatedQueueTime.t) <=> (l1.lineUpNumber > l2.lineUpNumber)
+    all disj l1, l2: VirtualLineUpTurn | all t: Time | (l1.estimatedQueueTime.t >= l2.estimatedQueueTime.t) iff (l1.lineUpNumber > l2.lineUpNumber)
 }
 
 //Different LineUpTurns have different LineUpNumbers

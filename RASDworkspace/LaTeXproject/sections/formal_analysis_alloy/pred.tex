@@ -1,3 +1,98 @@
 \begin{lstlisting}[language=alloy]
     
+    //A Visitor lines up via store, is called and then he/she enters the store
+    pred VisitorLinesUpAtTheStore[u: Visitor, s: Store, r: PhysicalLineUpTurn, t: Time, emp: Employee] {
+        r.client = u
+        r.store = s
+        r.status.t = WAITING
+        r.entrance.t = none
+        emp in s.employees
+    }
+    pred VisitorIsCalledAtTheStore[u: Visitor, s: Store, r: PhysicalLineUpTurn, t: Time, emp: Employee] {
+        VisitorLinesUpAtTheStore[u, s, r, t, emp]
+        r.status.t = WAITING
+        r.status.(t.next) = CALLED
+        r.entrance.(t.next) = none
+    }
+    pred VisitorEntersTheStoreAtTheStore[u: Visitor, s: Store, r: PhysicalLineUpTurn, t: Time, e: Entrance, emp: Employee] {
+        VisitorIsCalledAtTheStore[u, s, r, t, emp]
+        let t' = t.next | (
+        r.status.(t') = CALLED and
+        r.status.(t'.next) = USED and
+        r.entrance.(t'.next) = e and
+        s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and 
+        e.checkedBy.(t'.next) = emp
+        )
+    }
+
+
+    //A Customer lines up via app, is called and then he/she enters the store normally
+    pred CustomerLinesUp[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
+        r.client = u
+        r.store = s
+        r.status.t = WAITING
+        r.estimatedQueueTime.t > r.estimatedTravelTime.t
+        r.entrance.t = none
+    }
+    pred CustomerIsCalled[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time] {
+        CustomerLinesUp[u, s, r, t]
+        r.status.t = WAITING
+        r.status.(t.next) = CALLED
+        r.estimatedQueueTime.(t.next) = r.estimatedTravelTime.(t.next)
+        r.entrance.(t.next) = none
+    }
+    pred CustomerEntersTheStore[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, e: Entrance, emp: Employee] {
+        CustomerIsCalled[u, s, r, t]
+        let t' = t.next | (
+        r.status.(t') = CALLED and
+        r.status.(t'.next) = USED and
+        r.entrance.(t'.next) = e and
+        s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and
+        emp in s.employees and 
+        e.checkedBy.(t'.next) = emp and
+        r.estimatedQueueTime.(t'.next) = r.estimatedTravelTime.(t'.next) and
+        r.estimatedQueueTime.(t'.next) = 0
+        )
+    }
+
+
+    //A Customer lines up via app, is called and then he/she enters the store with a QRCode
+    pred CustomerLinesUpQRCode[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, qr: QRCode] {
+        CustomerLinesUp[u, s, r, t]
+        r.qrCode = qr
+    }
+    pred CustomerIsCalledQRCode[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, qr: QRCode] {
+        CustomerIsCalled[u, s, r, t]
+        CustomerLinesUpQRCode[u, s, r, t, qr]
+    }
+    pred CustomerEntersTheStoreQRCode[u: Customer, s: Store, r: VirtualLineUpTurn, t: Time, e: Entrance, qr: QRCode] {
+        CustomerIsCalledQRCode[u, s, r, t, qr]
+        let t' = t.next | (
+        r.status.(t') = CALLED and
+        r.status.(t'.next) = USED and
+        r.entrance.(t'.next) = e and
+        r.entrance.(t'.next).checkedBy.(t'.next) = qr and
+        s.realTimeOccupancy.(t').next = s.realTimeOccupancy.(t'.next) and
+        r.estimatedQueueTime.(t'.next) = r.estimatedTravelTime.(t'.next) and
+        r.estimatedQueueTime.(t'.next) = 0
+        )
+    }
+
+
+    //A Customer books a visit and then enters the store
+    pred CustomerBooksAVisit[u: Customer, s: Store, r: Visit, t: Time] {
+        r.client = u
+        r.store = s
+        r.status.t = WAITING
+        r.entrance.t = none
+    }
+    pred CustomerEntersTheStoreVisit[u: Customer, s: Store, r: Visit, t: Time, e: Entrance, emp: Employee] {
+        CustomerBooksAVisit[u, s, r, t]
+        r.status.(t.next) = USED
+        emp in s.employees
+        e.checkedBy.(t.next) = emp
+        s.realTimeOccupancy.t.next = s.realTimeOccupancy.(t.next)
+        r.entrance.(t.next) = e
+    }
+
 \end{lstlisting}

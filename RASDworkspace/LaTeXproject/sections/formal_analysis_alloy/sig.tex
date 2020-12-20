@@ -1,3 +1,84 @@
 \begin{lstlisting}[language=alloy]
-    
+    open util/time
+
+    abstract sig Bool{}
+    one sig TRUE extends Bool{}
+    one sig FALSE extends Bool{}
+
+    abstract sig Person{}
+
+    abstract sig StoreClient extends Person{}
+
+    sig Employee extends Person{}
+
+    sig StoreManager extends Person{}
+
+    sig Visitor extends StoreClient{}
+
+    sig Customer extends StoreClient{}
+
+    sig Location{}
+
+    one sig Store{
+        location: Location,
+        storeManager: StoreManager,
+        employees: set Employee,
+        capacity: Int,
+        realTimeOccupancy: Int one -> Time
+    } {
+        capacity > 0
+        all r: realTimeOccupancy.Time | r > 0
+    }
+
+    abstract sig ReservationStatus{}
+    one sig WAITING extends ReservationStatus{}
+    one sig CALLED extends ReservationStatus{}
+    one sig USED extends ReservationStatus{}
+    one sig EXPIRED extends ReservationStatus{}
+
+    abstract sig Reservation{
+        client: StoreClient,
+        store: Store,
+        status: ReservationStatus one -> Time,
+        entrance: Entrance lone -> Time
+    }{
+        all t: Time | (entrance.t != none) iff (status.t = USED)
+    }
+
+    sig Visit extends Reservation{
+        informations: VisitInformations
+    } {
+        all t: Time | status.t != CALLED
+    }
+
+    abstract sig LineUpTurn extends Reservation{
+        lineUpNumber: Int
+    }{
+        lineUpNumber > 0
+    }
+
+    sig PhysicalLineUpTurn extends LineUpTurn{}
+
+    sig VirtualLineUpTurn extends LineUpTurn{
+        estimatedQueueTime: Int one -> Time,
+        estimatedTravelTime: Int one -> Time,
+        qrCode: lone QRCode
+    }{
+        all e: estimatedQueueTime.Time | e >= 0
+        all e: estimatedTravelTime.Time | e >= 0
+        all t: Time | estimatedQueueTime.t >= estimatedTravelTime.t
+    }
+
+    sig Entrance{
+        checkedBy: (Employee + QRCode) lone -> Time
+    } {
+        all t: Time | checkedBy.t != none iff (some r: Reservation | r.entrance.t = this)
+        all t: Time | checkedBy.t in QRCode implies (all v: Visit + PhysicalLineUpTurn | not (this in v.entrance.t))
+    }
+
+    sig VisitInformations{
+    }
+
+    sig QRCode{
+    }
 \end{lstlisting}
