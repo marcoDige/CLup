@@ -5,6 +5,13 @@
 \usepackage{alltt}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{array}
+\usepackage{verbatim}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \setlength{\parskip}{\smallskipamount}
@@ -95,6 +102,30 @@
 \mainmatter
 \chapter{Introduction}
 
+	\section{Purpose}
+
+		\input{sections/introduction/purpose.tex}
+
+	\section{Scope}
+
+		\input{sections/introduction/scope.tex}
+
+	\section{Definitions, Acronyms, Abbreviation}
+
+		\input{sections/introduction/def_acr_abbr.tex}
+
+	\section{Revision History}
+
+		\input{sections/introduction/revision_history.tex}
+
+	\section{Reference Documents}
+
+		\input{sections/introduction/reference_doc.tex}
+
+	\section{Document Structure}
+
+		\input{sections/introduction/doc_structure.tex}
+
 \chapter{Architectural Design}\label{chapt:sum}
 
 \chapter{User Interface Design}\label{chapt:sum}
@@ -105,7 +136,17 @@
 
 \chapter{Effort Spent}\label{chapt:sum}
 
+	\section{Marco Di Gennaro}
+
+		\input{sections/effort_spent/marco_effort.tex}
+
+	\section{Luca Danelutti}
+
+		\input{sections/effort_spent/luca_effort.tex}
+
 \chapter{References}\label{chapt:sum}
+
+	\input{sections/references.tex}
 
 \pagebreak
 
