@@ -82,6 +82,22 @@ sig QRCode{
 }
 
 fact {
+    all t: Time | all r: VirtualLineUpTurn | (r.status.t = CALLED) => (r.estimatedQueueTime.t = r.estimatedTravelTime.t)
+}
+
+fact {
+    all t: Time | all r: VirtualLineUpTurn | (r.status.t = EXPIRED) => (r.estimatedQueueTime.t = 0 && r.estimatedTravelTime.t = 0)
+}
+
+fact {
+    all t: Time | all r: VirtualLineUpTurn | (r.status.t = USED) => (r.estimatedQueueTime.t = 0 && r.estimatedTravelTime.t = 0)
+}
+
+fact {
+    all v1, v2: Visit | v1.informations != v2.informations
+}
+
+fact {
     all r: Reservation | r.client in Visitor <=> r in PhysicalLineUpTurn
 }
 
@@ -104,12 +120,6 @@ fact {
 fact {
     all disj l1, l2: VirtualLineUpTurn | all t: Time | (l1.estimatedQueueTime.t >= l2.estimatedQueueTime.t) <=> (l1.lineUpNumber > l2.lineUpNumber)
 }
-
-/*
-fact {
-    all disj l1, l2: LineUpTurn | (l1.lineUpNumber < l2.lineUpNumber and no l1.reservation) => no reservation.l2
-}
-*/
 
 fact {
     all disj l1, l2: LineUpTurn | l1.lineUpNumber != l2.lineUpNumber
