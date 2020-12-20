@@ -72,7 +72,7 @@ sig Entrance{
     checkedBy: (Employee + QRCode) lone -> Time
 } {
     all t: Time | checkedBy.t != none <=> (some r: Reservation | r.entrance.t = this)
-    all t: Time | checkedBy.t in QRCode => (all v: Visit + PhysicalLineUpTurn | not (this in v.entrance.t))
+    all t: Time | checkedBy.t in QRCode implies (all v: Visit + PhysicalLineUpTurn | not (this in v.entrance.t))
 }
 
 sig VisitInformations{
@@ -88,30 +88,30 @@ fact {
 
 //LineUpTurn status evolution
 fact {
-    all t: Time | all l: LineUpTurn | (l.status.t = CALLED) => (not WAITING in l.status.(t.next))
-    all t: Time | all l: LineUpTurn | (l.status.t = USED) => (not WAITING in l.status.(t.next) && not CALLED in l.status.(t.next) && not EXPIRED in l.status.(t.next))
-    all t: Time | all l: LineUpTurn | (l.status.t = EXPIRED) => (not WAITING in l.status.(t.next) && not CALLED in l.status.(t.next) && not USED in l.status.(t.next))
+    all t: Time | all l: LineUpTurn | (l.status.t = CALLED) implies (not WAITING in l.status.(t.next))
+    all t: Time | all l: LineUpTurn | (l.status.t = USED) implies (not WAITING in l.status.(t.next) && not CALLED in l.status.(t.next) && not EXPIRED in l.status.(t.next))
+    all t: Time | all l: LineUpTurn | (l.status.t = EXPIRED) implies (not WAITING in l.status.(t.next) && not CALLED in l.status.(t.next) && not USED in l.status.(t.next))
 }
 
 //Visit status evolution
 fact {
-    all t: Time | all l: Visit | (l.status.t = USED) => (not WAITING in l.status.(t.next) && not EXPIRED in l.status.(t.next))
-    all t: Time | all l: Visit | (l.status.t = EXPIRED) => (not WAITING in l.status.(t.next) && not USED in l.status.(t.next))
+    all t: Time | all l: Visit | (l.status.t = USED) implies (not WAITING in l.status.(t.next) && not EXPIRED in l.status.(t.next))
+    all t: Time | all l: Visit | (l.status.t = EXPIRED) implies (not WAITING in l.status.(t.next) && not USED in l.status.(t.next))
 }
 
 //When a customer is called the queue time equals the travel time
 fact {
-    all t: Time | all r: VirtualLineUpTurn | (r.status.t = CALLED) => (r.estimatedQueueTime.t = r.estimatedTravelTime.t)
+    all t: Time | all r: VirtualLineUpTurn | (r.status.t = CALLED) implies (r.estimatedQueueTime.t = r.estimatedTravelTime.t)
 }
 
 //When a VirtualLineUpTurn is expired the queue time and the travel time are 0
 fact {
-    all t: Time | all r: VirtualLineUpTurn | (r.status.t = EXPIRED) => (r.estimatedQueueTime.t = 0 && r.estimatedTravelTime.t = 0)
+    all t: Time | all r: VirtualLineUpTurn | (r.status.t = EXPIRED) implies (r.estimatedQueueTime.t = 0 && r.estimatedTravelTime.t = 0)
 }
 
 //When a customer enters the store the queue time and the travel time are 0
 fact {
-    all t: Time | all r: VirtualLineUpTurn | (r.status.t = USED) => (r.estimatedQueueTime.t = 0 && r.estimatedTravelTime.t = 0)
+    all t: Time | all r: VirtualLineUpTurn | (r.status.t = USED) implies (r.estimatedQueueTime.t = 0 && r.estimatedTravelTime.t = 0)
 }
 
 //Different visits have different visit informations
@@ -131,7 +131,7 @@ fact {
 
 //Different Entrances have different QRCodes
 fact {
-    all disj e1, e2: Entrance | all qr: QRCode | all t: Time | (e1.checkedBy.t = qr) => (e2.checkedBy.t != qr)
+    all disj e1, e2: Entrance | all qr: QRCode | all t: Time | (e1.checkedBy.t = qr) implies (e2.checkedBy.t != qr)
 }
 
 //Different VirtualLineUpTurns have different QRCodes
@@ -141,7 +141,7 @@ fact {
 
 //An entrance related to a VirtualLineUpTurn is either checked by an employee or it has a qrCode
 fact {
-    all v: VirtualLineUpTurn | (some e: v.entrance.Time | some emp: Employee | emp in e.checkedBy.Time) => v.qrCode = none
+    all v: VirtualLineUpTurn | (some e: v.entrance.Time | some emp: Employee | emp in e.checkedBy.Time) implies v.qrCode = none
 }
 
 //LineUpNumber and estimatedQueueTime relation
