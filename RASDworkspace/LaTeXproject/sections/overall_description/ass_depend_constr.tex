@@ -1,8 +1,8 @@
 \subsection{Regulatory policies}
-The CLup application will ask for user personal informations like name, surname, email adress and phone number. Phone numbers and email addresses won't be used for commercial purposes.
-Personal informations will be processed in compliance with the GDPR regulations.
+The CLup application will ask for user personal information like name, surname, email address, and phone number. Phone numbers and email addresses won't be used for commercial purposes.
+Personal information will be processed in compliance with the GDPR.
 
-Moreover, the system will have to ask for users' permission in order to retrieve and use their position. GPS positions will be stored for as long it's needed to compute the route to the grocery store.
+Moreover, the system will have to ask for users' permission to retrieve and use their position. GPS positions will be stored for as long it's needed to compute the route to the grocery store.
 
 \subsection{Hardware limitations}
 \label{hardware limitations}
@@ -23,10 +23,10 @@ Moreover, the system will have to ask for users' permission in order to retrieve
 In the first release of CLup no public interfaces will be opened to third party services.
 
 \subsection{Text assumptions}
-In the specification document presented by the client we found some points that lacked in precision. In order to better clarify and to make you understand better the content of this document we decided to introduce those assumptions.
+In the specification document presented by the client, we found some points that lacked precision. To better clarify and to make you understand better the content of this document we decided to introduce those assumptions.
 \begin{itemize}
-    \item Entrances monitoring is referred to customers using their personal QR code.
-    \item QR Code scanning is not mandatory: customers who will scan their QR code when entering the store will contribute to entrances monitoring, thoose who will not will not contribute to such statistics.
+    \item Entrances monitoring is referred to customers using their QR code.
+    \item QR Code scanning is not mandatory: customers who will scan their QR code when entering the store will contribute to entrances monitoring, those who will not contribute to such statistics.
     \item Visits durations for long term customers are computed by the CLup system from previous visits details inserted by the users
 \end{itemize}
 
@@ -34,7 +34,7 @@ In the specification document presented by the client we found some points that 
 
     \begin{center}
         {\renewcommand{\arraystretch}{2}%
-        \begin{tabular}{L{2cm}L{12cm}}
+        \begin{longtable}{L{2cm}L{12cm}}
             \hline
             \textbf{D1} & All customers use CLup to access the store \\
             \hline
@@ -74,5 +74,5 @@ In the specification document presented by the client we found some points that 
             \hline
             \textbf{D19} & Store has a CLup compatible device \\
             \hline
-        \end{tabular}}
+        \end{longtable}}
     \end{center}
