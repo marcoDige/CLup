@@ -8,3 +8,4 @@
 *.synctex(busy)
 main.pdf
 __latexindent_temp.tex
+*.DS_Store
