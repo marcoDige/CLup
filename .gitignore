@@ -6,5 +6,5 @@
 *.synctex.gz
 *.toc
 *.synctex(busy)
-*.pdf
+main.pdf
 __latexindent_temp.tex
