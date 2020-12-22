@@ -25,9 +25,9 @@ The below high-level diagram provides a static information model of the applicat
 The main aspects of Clup modeled in the below diagram are:
 \begin{itemize}
     \item The application needs to consider the presence of a visitor who arrives at the supermarket and requires a place in the queue. For this reason, two types of Store Clients (visitor and customer) are distinguished in the diagram
-    \item Given the need to allow the reservation of a seat in the queue to those who do not use the system directly, it is necessary to distinguish between 2 types of Lineup turn (physical and virtual).
-    \item A customer can book a Visit or a Lineup turn. To facilitate the reading of the diagram these two actions were generalized to an abstract class Reservation extended by Visit class and LineupTurn class. the possibility to generate a QR code associated with a reservation of a seat in the queue is represented in the diagram by the optional attribute "qrCode" of the VirtualLineupTurn class
-    \item A visitor can book only a physical lineup turn. This reservation is handled by a Store employee who will act as a link between the system and the visitor
+    \item Given the need to allow the reservation of a seat in the queue to those who do not use the system directly, it is necessary to distinguish between 2 types of Line up turn (physical and virtual)
+    \item A customer can book a Visit or a Line up turn. To facilitate the reading of the diagram these two actions were generalized to an abstract class Reservation extended by Visit class and LineupTurn class. The possibility to generate a QR code associated with a reservation of a seat in the queue is represented in the diagram by the optional attribute "qrCode" of the VirtualLineupTurn class
+    \item A visitor can book only a physical line up turn. This reservation is handled by a Store employee who will act as a link between the system and the visitor
     \item Each entrance could be monitored by the store manager
 \end{itemize}
 \includegraphics[width=\textwidth]{class_diagram.png}
@@ -37,13 +37,13 @@ The main aspects of Clup modeled in the below diagram are:
 The below state diagrams shows some critical aspects of the application, how the behavior of these critical aspects is modeled, and the evolution of their states.
 
 \medskip
-In the first state diagram, we model the behavior our system has to have when there is a new request to reserve a virtual lineup turn. Particular attention is paid to the possibility of generating a QR code and the management of waiting in the virtual lineup.
+In the first state diagram, we model the behavior our system has to have when there is a new request to reserve a virtual line up turn. Particular attention is paid to the possibility of generating a QR code and the management of waiting in the virtual line up.
 
 \medskip
 \includegraphics[width=\textwidth]{state_diagram1.png}
 
 \medskip
-In the second state diagram, we model the behavior our system has to have when a store employee notifies a new request to reserve a physical lineup turn. Attention is paid to the difference from the previous phenomenon. In this case, the system will limit itself to acquire the demand and to process it with the other demands (also virtual)
+In the second state diagram, we model the behavior our system has to have when a store employee notifies a new request to reserve a physical line up turn. Attention is paid to the difference from the previous phenomenon. In this case, the system will limit itself to acquire the demand and to process it with the other demands (also virtual)
 
 \medskip
 \includegraphics[width=\textwidth]{state_diagram2.png}
