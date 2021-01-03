@@ -1,0 +1,333 @@
+\begin{center}
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G1} & \textbf{Everyone can use and interact with the CLup system accordingly with itsfeatures and processes} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R1 & Visitors are allowed to register as customers through the CLup application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R2 & The store manager is allowed to register as store manager through the CLup web app \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip
+        \medskip
+        \begin{itemize}
+            \item Customer Mobile Services \begin{itemize}
+                \item AccountManager
+            \end{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G2} & \textbf{All customers who reserve a place in the queue will be called} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R8 & The employee can report the entrance related to a line up number or a visit and the exit of each person from the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R9 & The line up numbers and the visits are invalidated after a period of time if not used to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R11 & The CLup system notifies the employee when it’s time to call a visitor who previously asked to line up at the entry point \\
+        \hline
+        \rowcolor{shadeColorRequirement} R17 & The application monitors the customer’s position and computes the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorRequirement} R18 & The application notifies the customer when the estimated queue waiting time is near the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorRequirement} R19 & The system generates a unique (in an appropriate time interval) number to identify the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R20 & The system pushes forward the queue based on the reported exits and the scheduled visits \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip 
+        \begin{itemize}
+            \item Customer Mobile Services \begin{itemize}
+                \item AccountManager
+                \item LineUpReservationModule
+            \end{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+                \item EntrancesAndExitsModule
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+            \item QueueManager
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G3} & \textbf{Allow customers to enter the store once their number has been called or ifthey have booked a visit for that time slot} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R8 & The employee can report the entrance related to a line up number or a visit and the exit of each person from the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R10 & The employee can see the line up numbers/visits that are allowed to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R14 & The CLup system can acquire the scanned QR code \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip
+        \begin{itemize}
+            \item Customer Mobile Services \begin{itemize}
+                \item AccountManager
+            \end{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+                \item EntrancesAndExitsModule
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G4} & \textbf{Customers who go to the supermarket without a number/booking are allowedto line up at the store} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R7 & The employee can line up a visitor who asked for that and can give him/her the number associated with the position in the queue \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip 
+        \begin{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+                \item LineUpReservationModule
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G5} & \textbf{Inside the grocery store it must be feasible to follow Covid19 regulations} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R5 & The store manager can insert and edit store information \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R7 & The employee can line up a visitor who asked for that and can give him/her the number associated with the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R8 & The employee can report the entrance related to a line up number or a visit and the exit of each person from the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R10 & The employee can see the line up numbers/visits that are allowed to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R15 & The CLup application has a section to line up \\
+        \hline
+        \rowcolor{shadeColorRequirement} R20 & The system pushes forward the queue based on the reported exits and the scheduled visits \\
+        \hline
+        \rowcolor{shadeColorRequirement} R21 & The CLup application has a section to book a visit \\
+        \hline
+        \rowcolor{shadeColorRequirement} R23 & The system schedules visits based on related details \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip 
+        \begin{itemize}
+            \item Customer Mobile Services \begin{itemize}
+                \item AccountManager
+                \item LineUpReservationModule
+                \item VisitReservationModule
+            \end{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+                \item EntrancesAndExitsModule
+                \item LineUpReservationModule
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+            \item QueueManager
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G6} & \textbf{Outside the grocery store there must not be long queues or overcrowding} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R6 & The store manager can create and edit the employees’ accounts associated to his/her store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R7 & The employee can line up a visitor who asked for that and can give him/her the number associated with the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R9 & The line up numbers and the visits are invalidated after a period of time if not used to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R11 & The CLup system notifies the employee when it’s time to call a visitor who previously asked to line up at the entry point \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip 
+        \begin{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+                \item EntrancesAndExitsModule
+                \item LineUpReservationModule
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+            \item QueueManager
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+        {\renewcommand{\arraystretch}{1.5}
+        \begin{longtable}{L{2.5cm}L{12cm}}
+            \hline
+            \rowcolor{shadeColorGoal}\textbf{G7} & \textbf{Customer is allowed to book a visit through the CLup system} \\
+            \hline
+            \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+            \hline
+            \rowcolor{shadeColorRequirement} R21 & The CLup application has a section to book a visit \\
+            \hline
+            \rowcolor{shadeColorRequirement} R22 & The CLup application shows available time slots for visits \\
+            \hline
+            \rowcolor{shadeColorRequirement} R24 & The customer can insert additional details like what he/she is going to buy, the estimated visit duration or what departments he/she will go to) \\
+            \hline
+            \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+            \medskip 
+            \begin{itemize}
+                \item Customer Mobile Services \begin{itemize}
+                    \item AccountManager
+                    \item VisitReservationModule
+                \end{itemize}
+            \end{itemize} \\
+            \hline
+        \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G8} & \textbf{Customer is allowed to line up through the CLup system} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R13 & Customer can generate a QR code to enter the store \\
+        \hline
+        \rowcolor{shadeColorRequirement} R15 & The CLup application has a section to line up \\
+        \hline
+        \rowcolor{shadeColorRequirement} R16 & The CLup application shows the estimated queue waiting time, the queue size, the estimated travel time and the number related to the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R19 & The system generates a unique (in an appropriate time interval) number toidentify the position in the queue \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip 
+        \begin{itemize}
+            \item Customer Mobile Services \begin{itemize}
+                \item AccountManager
+                \item LineUpReservationModule
+            \end{itemize}
+            \item QueueManager
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G9} & \textbf{The store manager is allowed to monitor entrances of customers that used theQR Code} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R4 & The store manager and the employee are allowed to login in inside the web application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R5 & The store manager can insert and edit store information \\
+        \hline
+        \rowcolor{shadeColorRequirement} R12 & The store manager can see charts and analysis related to entrances made with the QR code \\
+        \hline
+        \rowcolor{shadeColorRequirement} R14 & The CLup system can acquire the scanned QR code \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip
+        \begin{itemize}
+            \item Employee Web Services \begin{itemize}
+                \item AccountManager
+                \item EntrancesAndExitsModule
+            \end{itemize}
+            \item Store Manager Web Services \begin{itemize}
+                \item AccountManager
+                \item StoreInfoAndEmployeesManager
+            \end{itemize}
+            \item DataAnalyzer
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{longtable}{L{2.5cm}L{12cm}}
+        \hline
+        \rowcolor{shadeColorGoal}\textbf{G10} & \textbf{Customer is allowed to approach the store in time with respect to his positionin the queue} \\
+        \hline
+        \rowcolor{shadeColorRequirement} R3 & Customers are allowed to log in inside the application \\
+        \hline
+        \rowcolor{shadeColorRequirement} R16 & The CLup application shows the estimated queue waiting time, the queue size, the estimated travel time and the number related to the position in the queue \\
+        \hline
+        \rowcolor{shadeColorRequirement} R17 & The application monitors the customer’s position and computes the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorRequirement} R18 & The application notifies the customer when the estimated queue waiting time is near the estimated travel time \\
+        \hline
+        \rowcolor{shadeColorComponents} & \textbf{Components} mapped to the above requirements:
+
+        \medskip
+        \begin{itemize}
+            \item Customer Mobile Services \begin{itemize}
+                \item AccountManager
+                \item LineUpReservationModule
+            \end{itemize}
+        \end{itemize} \\
+        \hline
+    \end{longtable}}
+\end{center}

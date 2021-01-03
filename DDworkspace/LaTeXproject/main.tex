@@ -59,6 +59,15 @@
 % Separates the first part of the report/thesis in Roman numerals
 \frontmatter
 
+% To split a table between two or more pages
+\usepackage{longtable}
+
+% Rows background colors
+\usepackage[table]{xcolor}%
+\definecolor{shadeColorGoal}{RGB}{190,190,190}
+\definecolor{shadeColorRequirement}{RGB}{230,230,230}
+\definecolor{shadeColorComponents}{RGB}{250,250,250}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Starts the document
 \begin{document}
 
@@ -159,6 +168,10 @@
 \chapter{User Interface Design}\label{chapt:sum}
 
 \chapter{Requirements Traceability}\label{chapt:sum}
+
+	\input{sections/req_traceability/intro.tex}
+
+	\input{sections/req_traceability/body.tex}
 
 \chapter{Implementation, Integration and Test Plan}\label{chapt:sum}
 
