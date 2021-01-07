@@ -10,38 +10,38 @@ To make it easier to read component diagrams, it was decided to present 4 diagra
         \end{itemize}
     \end{itemize}
 
-    %\begin{figure}[H]
-        %\centering
-        %\includegraphics[width=16cm]{}
-        %\caption{High level component diagram}
-    %\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=16cm]{component_view-High-level.png}
+        \caption{High level component diagram}
+    \end{figure}
 
 \subsection{Customer mobile services diagram}
 
-    The following diagram shows how the subsystem \textbf{Customer Mobile Services} is composed and how its modules communicate with external modules. This subsystem contains 3 modules: a \textit{Visit Reservation Module}, a \textit{Line up Reservation Module} and an \textit{Account Manager}. This modules provides to Mobile Application the following interfaces: \textit{VisitHistory}, \textit{LineUpHistory}, \textit{ManageVisit}, \textit{ManageLineUp}, \textit{ProfileManagement}, \textit{AccessManager}. The components of the Customer Mobile Services subsystem need to communicate with the DBMS, Maps API, OS Notification Gateway, Queue Manager and Visit Scheduler.
+    The following diagram shows how the subsystem \textbf{Customer Mobile Services} is composed and how its modules communicate with external modules. This subsystem contains 3 modules: a \textit{Visit Reservation Module}, a \textit{Line up Reservation Module} and an \textit{Account Manager}. This modules provides to Mobile Application the following interfaces: \textit{VisitHistory}, \textit{LineUpHistory}, \textit{ManageVisit}, \textit{ManageLineUp}, \textit{ProfileManagement}, \textit{AccessManager}. The components of the Customer Mobile Services subsystem need to communicate with the DBMS, Queue Manager and Visit Scheduler and indirectly with Maps API.
 
-    %\begin{figure}[H]
-        %\centering
-        %\includegraphics[width=16cm]{}
-        %\caption{Customer Mobile Services component diagram}
-    %\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=16cm]{component_view-Customer_mobile_services.png}
+        \caption{Customer Mobile Services component diagram}
+    \end{figure}
 
 \subsection{Employee web services diagram}
 
-    The following diagram shows how the subsystem \textbf{Employee Web Services} is composed and how its modules communicate with external modules. This subsystem contains 3 modules: a \textit{Line up Reservation Module}, a \textit{Entrances and Exits Module} and an \textit{Account Manager}. This modules provides to Web Application the following interfaces: \textit{LineUp}, \textit{ManageEntrances}, \textit{ManageExits}, \textit{AccessManager}. The components of the Employee Web Services subsystem need to communicate with the DBMS and the Queue Manager.
+    The following diagram shows how the subsystem \textbf{Employee Web Services} is composed and how its modules communicate with external modules. This subsystem contains 3 modules: a \textit{Line up Reservation Module}, a \textit{Entrances and Exits Module} and an \textit{Account Manager}. This modules provides to Web Application the following interfaces: \textit{LineUp}, \textit{ManageEntrances}, \textit{ManageExits}, \textit{AccessManager}. The components of the Employee Web Services subsystem need to communicate with the DBMS and the Queue Manager and indirectly with OS Notification Gateway.
 
-    %\begin{figure}[H]
-        %\centering
-        %\includegraphics[width=16cm]{}
-        %\caption{Employee Web Services component diagram}
-    %\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=16cm]{component_view-Employee_web_services.png}
+        \caption{Employee Web Services component diagram}
+    \end{figure}
 
 \subsection{Store Manager web services diagram}
 
-    The following diagram shows how the subsystem \textbf{Store Manager Web Services} is composed and how its modules communicate with external modules. This subsystem contains 3 modules: a \textit{Statistics and Data Gateway}, a \textit{Store Info and Employees Manager} and an \textit{Account Manager}. This modules provides to Web Application the following interfaces: \textit{Retrieve Statistics}, \textit{StoreManagement}, \textit{ProfileManagement}, \textit{AccessManager}. The components of the Store Manager Web Services subsystem need to communicate with the DBMS.
+    The following diagram shows how the subsystem \textbf{Store Manager Web Services} is composed and how its modules communicate with external modules. This subsystem contains 3 modules: a \textit{Statistics and Data Gateway}, a \textit{Store Info and Employees Manager} and an \textit{Account Manager}. This modules provides to Web Application the following interfaces: \textit{Retrieve Statistics}, \textit{StoreManagement}, \textit{EmployeesManagement}, \textit{ProfileManagement}, \textit{AccessManager}. The components of the Store Manager Web Services subsystem need to communicate with the DBMS.
 
-    %\begin{figure}[H]
-        %\centering
-        %\includegraphics[width=16cm]{}
-        %\caption{Store Manager Web Services component diagram}
-    %\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=16cm]{component_view-Store_manager_web_services.png}
+        \caption{Store Manager Web Services component diagram}
+    \end{figure}
