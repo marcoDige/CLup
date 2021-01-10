@@ -2,9 +2,9 @@
 In the overview section (2.1) there is a description of how a \textbf{three-tier client-server} architecture has been used to design the system. This choice favors, first of all, a greater decoupling of the system, increasing reusability, scalability and
 flexibility. 
 
-Regarding the transport protocol adopted, our choice is \textbf{HTTPS}. is the secure version of HTTP, which is the primary protocol used to send data between the web browser and a website (like the web app used by Employees and the Store Manager). HTTPS is encrypted to increase the security of data transfer. This is particularly important when users transmit sensitive data, such as by logging into their account.
+Regarding the transport protocol adopted, our choice is \textbf{HTTPS}. It's the secure version of HTTP, which is the primary protocol used to send data between the web browser and a website (like the web app used by Employees and the Store Manager). HTTPS is encrypted to increase the security of data transfer. This is particularly important when users transmit sensitive data, such as by logging into their account.
 
-for the communication between the application and the system, our choice is a \textbf{REST} architecture. The goal was to reduce the coupling between client and server components. It fits very well for the scope because the goal is to update the server-side regularly, without touching the client software. This choice introduces the following constraints:
+For the communication between the application and the system, our choice is a \textbf{REST} architecture. The goal was to reduce the coupling between client and server components. It fits very well for the scope because the goal is to update the server-side regularly, without touching the client software. This choice introduces the following constraints:
 \begin{itemize}
     \item Layered Architecture
     \item Client-Server
