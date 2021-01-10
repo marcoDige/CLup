@@ -9,11 +9,11 @@ The system is divided in the following subsystems:
     \item Visit scheduler
     \item External subsystems like: Maps APis, OS Notif. Gateway and DBMS
 \end{itemize}
-As said in the section 2.2, \textit{Web application} and \textit{Mobile application} compose the client-side of our system, \textit{Customer mobile services}, \textit{Employee mobile services} and \textit{Store manager web services} compose the server-side of our system, while \textit{Queue manager} and \textit{Visit scheduler} are business logic layer subsystems. 
+As said in the section 2.2, \textit{Web application} and \textit{Mobile application} compose the client-side of our system, \textit{Customer mobile services}, \textit{Employee mobile services} and \textit{Store manager web services} compose the server-side business logic of our system, together with \textit{Queue manager} and \textit{Visit scheduler}. 
 
 The listed subsystems have to be implemented, tested, and integrated using a bottom-up approach. To do so, we provide a development order based on the dependencies to make possible a step-by-step implementation and components integration testing (respecting the technique of the bottom-up approach). To accelerate the development process, we opted for a mixed process, where there are macro-phases (implementation, unit testing, and integration testing) to be completed before others. As for the two sides: client-side and server-side, this can be developed in parallel, they will be integrated and tested together in the final integration part.
 
-It should be noted that it is not considered necessary to implement the external components mentioned above as they are assumed to be external and reliable
+It should be noted that it is not considered necessary to implement the external components mentioned above as they are assumed to be external and reliable.
 
 The following table presents the development stages with which we summarize the various steps of the development process and the execution order. For each step, a forecast of development difficulties has also been noted.
 
@@ -79,7 +79,7 @@ The following table presents the development stages with which we summarize the 
                 \centering
                 \includegraphics[width=\textwidth]{int_diagr7.png}
             \end{figure}
-            \item \textbf{Entrances and Exits Developing}: In this step it's necessary to implement and produce unit test for the component \textit{EntrancesAndExitsModule}. As you can see in the diagram, the component in this stage has to be integrated and tested with \textit{StoreInfoAndEmployeeManager}. Following the bottom-up approach it uses a Driver to represents the high level components to be developed \begin{figure}[H]
+            \item \textbf{Entrances and Exits Developing}: In this step it's necessary to implement and produce unit test for the component \textit{EntrancesAndExitsModule}. As you can see in the diagram, the component in this stage has to be integrated and tested with \textit{AccessManager} (Employee Web Services). Following the bottom-up approach it uses a Driver to represents the high level components to be developed \begin{figure}[H]
                 \centering
                 \includegraphics[width=\textwidth]{int_diagr8.png}
             \end{figure}
