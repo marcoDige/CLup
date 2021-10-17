@@ -1,3 +1,3 @@
 # Software Engineering 2 Project
-Software engineering 2 project repository.
-Authors: Marco Di Gennaro (10596841) and Luca Danelutti (10604455)
+Software Engineering 2 RASD & DD Project 20/21 repository.
+Authors: Marco Di Gennaro and Luca Danelutti
