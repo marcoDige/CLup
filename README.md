@@ -7,10 +7,10 @@ The objective of this project is to apply in practice what we learned during lec
 
 This application has been designed during the COVID-19 pandemic and wants to foster a safe shopping experience by providing a customer flow control system. This system should allow the users to avoid crowds both inside and outside the stores. The system should also be very simple to use (to adapt to all demographics) and provide fallback options for those who do not have access to the application.
 
-### Assignment(s)
-You can find the original assignment(s) in the assignments folder.
+### Assignment
+You can find the original assignment [Here](https://github.com/marcoDige/CLupDocumentation-Softeng2Project/blob/main/assignment/R&DD%20Assignment%20A.Y.%202020-2021.pdf).
 
 ### Deliverables
 These are the final documents of this project that we have delivered:
-* [Requirement Analysis and Specification Document (RASD)](https://github.com/marcoDige/CLupDocumentation-Softeng2Project/blob/main/DeliveryFolder/RASD1.pdf)
-* [Design Document (DD)](https://github.com/marcoDige/CLupDocumentation-Softeng2Project/blob/main/DeliveryFolder/DD1.pdf)
+* [Requirement Analysis and Specification Document (RASD)](https://github.com/marcoDige/CLupDocumentation-Softeng2Project/blob/main/deliverables/RASD1.pdf)
+* [Design Document (DD)](https://github.com/marcoDige/CLupDocumentation-Softeng2Project/blob/main/deliverables/DD1.pdf)
